@@ -839,6 +839,7 @@ footer .footer-left img {
         height: 100vh;
         opacity: 0;
         pointer-events: none;
+        transition: opacity 0.2s;
     }
 
     header nav.show {
@@ -854,11 +855,29 @@ footer .footer-left img {
 
     header ul {
         display: block;
-        padding: 3rem 1.5rem;
+        padding: 4.225rem 1.5rem;
+    }
+
+    header li:not(:last-of-type) {
+        margin-right: 0;
     }
 
     header li a {
         color: #fff;
+        font-size: var(--site-font-size-16);
+        padding: 4% 0;
+        display: block;
+        border-bottom: 1px solid #fff;
+    }
+
+    header li:last-of-type a {
+        background: var(--main-blue);
+        color: #fff;
+        padding: 4% 0;
+        border-radius: 0;
+        /* border: 2px solid var(--main-blue); */
+        border-bottom: 1px solid #fff;
+        transition: none;
     }
 
     .hamburger-icon {
@@ -880,10 +899,25 @@ footer .footer-left img {
         width: 20px;
         height: 3px;
         background: var(--main-blue);
+        transition: all 0.3s;
     }
 
     .hamburger-icon span:not(:last-of-type) {
         margin-bottom: 12%;
+    }
+
+    .hamburger-icon.active span:nth-of-type(1) {
+        -webkit-transform: translateY(7px) rotate(-45deg);
+        transform: translateY(7px) rotate(-45deg);
+    }
+
+    .hamburger-icon.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .hamburger-icon.active span:nth-of-type(3) {
+        -webkit-transform: translateY(-7px) rotate(45deg);
+        transform: translateY(-7px) rotate(45deg);
     }
 
     /* =======================

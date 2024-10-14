@@ -28,7 +28,9 @@ $(window).scroll(function() {
 $(".hamburger-icon").click(function() {
     if($("#header nav").hasClass("show")) {
         $("#header nav").removeClass("show");
+        $(".hamburger-icon").removeClass("active");
     } else {
         $("#header nav").addClass("show");
+        $(".hamburger-icon").addClass("active");
     }
 });
