@@ -120,7 +120,18 @@ header li:last-of-type a:hover {
     margin-top: 85px;
     padding: 0 32px 24px;
     box-sizing: border-box;
+    position: relative;
 }
+
+/* #mv::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: url(/img/top_text_img.svg);
+    width: 450px;
+    height: auto;
+} */
 
 #mv img {
     height: 720px;
@@ -129,6 +140,19 @@ header li:last-of-type a:hover {
     border-radius: 32px;
     object-position: top;
     object-fit: cover;
+}
+
+#mv p {
+    position: absolute;
+    bottom: 64px;
+    left: 64px;
+    color: #fff;
+    font-style: italic;
+    font-size: 9.975rem;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.3rem;
 }
 
 /* ====== サービスセクション ====== */
@@ -446,32 +470,32 @@ header li:last-of-type a:hover {
 /* ==========================
 お問い合わせセクション 
 ============================= */
-#contact {
+#recruit {
     margin-top: 120px;
 }
 
-#contact .container {
+#recruit .container {
     background: var(--main-blue);
     border-radius: 50px;
 }
 
-.contact-container {
+.recruit-container {
     padding: 60px 40px;
     display: flex;
 }
 
-.contact-left {
+.recruit-left {
     width: 450px;
     margin-right: 42px;
 }
 
-.contact-text p:first-of-type {
+.recruit-text p:first-of-type {
     color: #fff;
     font-size: 22px;
     font-weight: 700;
 }
 
-.contact-text p:nth-of-type(2) {
+.recruit-text p:nth-of-type(2) {
     color: #fff;
     font-size: 42px;
     font-weight: 800;
@@ -480,13 +504,13 @@ header li:last-of-type a:hover {
     margin: 31px 0 52px 0;
 }
 
-.contact-button {
+.recruit-button {
     display: flex;
     /* margin: 24px 0 0 auto;
     justify-content: end; */
 }
 
-.contact-button a {
+.recruit-button a {
     /* text-align: right; */
     display: flex;
     align-items: center;
@@ -499,11 +523,11 @@ header li:last-of-type a:hover {
     transition: 0.2s all;
 }
 
-.contact-button a:hover {
+.recruit-button a:hover {
     color: var(--main-blue);
 }
 
-.contact-button span {
+.recruit-button span {
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -516,18 +540,49 @@ header li:last-of-type a:hover {
     justify-content: center;
 } 
 
-.contact-right {
+.recruit-right {
     display: flex;
     justify-content: space-between;
     flex: 1;
 }
 
-.contact-img-row {
-    width: calc(50% - 20px);
-    max-width: calc(50% - 20px);
+.recruit-img-row {
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 20% 20%;
+    grid-template-areas: 
+        "A A B"
+        "A A B"
+        "C D D"
+        "C D D";
+    gap: 10px;
 }
 
-.contact-img-row:first-of-type {
+.recruit-img-row div:first-of-type {
+    grid-area: A;
+}
+
+.recruit-img-row div:nth-of-type(2) {
+    grid-area: B;
+}
+
+.recruit-img-row div:nth-of-type(3) {
+    grid-area: C;
+}
+
+.recruit-img-row div:last-of-type {
+    grid-area: D;
+}
+
+.recruit-img-row div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* .contact-img-row:first-of-type {
     margin: -12px 0 0 0;
 }
 
@@ -551,9 +606,9 @@ header li:last-of-type a:hover {
 
 .contact-img-row:last-of-type .img-bottom {
     width: 105%;
-}
+} */
 
-.contact-img-row img {
+.recruit-img-row img {
     border-radius: 20px;
 }
 
@@ -562,7 +617,7 @@ header li:last-of-type a:hover {
 ============================= */
 footer {
     width: 100%;
-    padding: 75px 50px;
+    padding: 75px 120px;
     margin-top: 100px;
     border-top: 1px solid #c1c1c1;
 }
@@ -697,6 +752,19 @@ footer .footer-left img {
     }
 
     /* トップ画像セクション */
+    #mv p {
+        position: absolute;
+        bottom: 64px;
+        left: 64px;
+        color: #fff;
+        font-style: italic;
+        font-size: 13vw;
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.3rem;
+    }
+
     /* #mv img {
         height: 720px;
         width: 100%;
@@ -722,15 +790,238 @@ footer .footer-left img {
 スマホ　768px 
  =================================== */
 @media screen and (max-width: 768px) {
-    /* ハンバーガーメニュー作成 */
-    .hamburger-icon {
-        display: block;
-    } 
+    /* =====================
+    共通クラス
+    ======================== */
+    .container {
+        width: 100%;
+        max-width: calc(100% - 3em);
+        /* padding-right: 1.5em;
+        padding-left: 1.5em; */
+        margin: 0 auto;
+    }
+    
+    .primary-heading {
+        margin-bottom: 20px;
+    }
+    
+    .primary-heading span {
+        color: var(--main-blue);
+        font-size: 20px;
+        font-weight: 700;
+    }
+    
+    .primary-heading h2 {
+        color: #000;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        line-height: 36px;
+    }
 
+    /* =====================
+    ヘッダー
+    ======================== */
+
+    header {
+        height: 75px;
+        padding: 20px;
+        position: fixed;
+    }
+
+    /* ハンバーガーメニュー作成 */
     header nav {
-        position: absolute;
+        position: fixed;
+        background: var(--main-blue);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    header nav.show {
+        /* position: fixed;
         background: lightcoral;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100vh; */
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    header ul {
+        display: block;
+        padding: 3rem 1.5rem;
+    }
+
+    header li a {
+        color: #fff;
+    }
+
+    .hamburger-icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 2px solid var(--main-blue);
+        background: #fff;
+        z-index: 10;
+    }
+    
+    .hamburger-icon span {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background: var(--main-blue);
+    }
+
+    .hamburger-icon span:not(:last-of-type) {
+        margin-bottom: 12%;
+    }
+
+    /* =======================
+    mv
+    ========================== */
+    #mv {
+        margin-top: 75px;
+        padding: 0 2%;
+    }
+
+    #mv img {
+        height: 72.2vw;
+    }
+
+    #mv p {
+        bottom: 3%;
+        left: 6%;
+        font-size: 12vw;
+    }
+
+    /* =======================
+    SERVICE
+    ========================== */
+    .service-row {
+        display: block;
+    }
+
+    .service-row a {
+        display: block;
+    }
+
+    .service-row .service-img {
+        width: 100%;
+        max-width: 100%;
+        height: 56.3vw;
+    }
+
+    .service-row div:nth-of-type(2) {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .service-row div:nth-of-type(2) p:first-of-type {
+        margin-bottom: 0.4725rem;
+    }
+
+    .service-row div h3 {
+        font-size: var(--site-font-size-24);
+        margin-bottom: 0.725rem;
+    }
+
+    .service-row div p:last-of-type {
+        font-size: var(--site-font-size-16);
+    }
+
+    /* =======================
+    WORKS
+    ========================== */
+    .work-img {
+        width: 100%;
+        height: 36.5vw;
+    }
+
+    .work-content .work-title {
+        font-size: var(--site-font-size-18);
+    }
+
+    /* =======================
+    NEWS
+    ========================== */
+    .news-row a {
+        display: block;
+        padding: 22px 0;
+    }
+
+    .news-row .news-left {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    /* =======================
+    RECRUIT
+    ========================== */
+    .recruit-container {
+        padding: 2rem 1.25rem;
+        display: block;
+    }
+
+    .recruit-left {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .recruit-text p:first-of-type {
+        font-size: var(--site-font-size-20);
+    }
+
+    .recruit-text p:nth-of-type(2) {
+        font-size: var(--site-font-size-28);
+        margin: 1rem 0 1.2rem 0;
+    }
+
+    .recruit-right {
+        margin-top: 1.5rem;
+    }
+
+    .recruit-img-row {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 50%;
+    }
+
+    /* =======================
+    FOOTER
+    ========================== */
+    footer {
+        padding: 3rem 1.275rem;
+    }
+
+    .footer-container {
+        display: block;
+    }
+
+    .footer-company .footer-info:not(:last-of-type) {
+        margin-bottom: 1.125rem;
+    }
+
+    .footer-right {
+        display: block;
+        margin-top: 1.5rem;
+    }
+
+    .footer-row:not(:last-of-type) {
+        margin-right: 0;
+    }
+
+    .footer-row.footer-links {
+        margin-bottom: 1.125rem;
     }
 }
